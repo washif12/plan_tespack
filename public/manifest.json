@@ -1,0 +1,17 @@
+{
+    "theme_color": "#005aa7",
+    "background_color": "#005aa7",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "https://tesinsight.com/",
+    "name": "Tespack",
+    "short_name": "Tespack",
+    "icons": [
+        {
+            "src": "/icon-192x192.png",
+            "type": "image/png",
+            "sizes": "144x144",
+            "purpose": "any"
+        }
+    ]
+}

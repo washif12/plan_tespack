@@ -1,0 +1,140 @@
+<?php
+
+function msg($success, $status, $message, $extra = [])
+{
+    return array_merge([
+        'success' => $success,
+        'status' => $status,
+        'message' => $message
+    ], $extra);
+}
+
+require __DIR__ . '/../../assets/api/classes/database.php';
+
+$db_connection = new Database();
+$conn = $db_connection->dbConnection();
+$returnData = [];
+
+// IF REQUEST METHOD IS NOT EQUAL TO POST
+if ($_SERVER["REQUEST_METHOD"] != "POST") :
+    $returnData = msg(0, 404, 'Page Not Found!');
+
+// CHECKING EMPTY FIELDS
+elseif (
+    !isset($_POST['fname'])
+    || !isset($_POST['lname'])
+    || !isset($_POST['email'])
+    || !isset($_POST['phone'])
+    || !isset($_POST['country'])
+    || !isset($_POST['address'])
+    || !isset($_POST['id'])
+    || empty(trim($_POST['fname']))
+    || empty(trim($_POST['lname']))
+    || empty(trim($_POST['email']))
+    || empty(trim($_POST['id']))
+    || empty(trim($_POST['phone']))
+    || empty(trim($_POST['country']))
+    || empty(trim($_POST['address']))
+) :
+
+    $fields = ['fields' => ['email', 'name', 'role']];
+    $returnData = msg(0, 422, 'Please Fill in all Required Fields!', $fields);
+
+// IF THERE ARE NO EMPTY FIELDS THEN-
+else :
+    $fname = trim($_POST['fname']);
+    $lname = trim($_POST['lname']);
+    $fullName = $fname . ' ' . $lname;
+    $email = trim($_POST['email']);
+    $phone = trim($_POST['phone']);
+    $country = trim($_POST['country']);
+    $address = trim($_POST['address']);
+    $id = trim($_POST['id']);
+    $user_id = trim($_POST['id']);
+    $role = trim($_POST['role']);
+    //$newRole = trim($_POST['newRole']);
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) :
+        $returnData = msg(0, 422, 'Invalid Email Address');
+    else :
+        $image_path = "";
+        if (!empty($_FILES)) :
+            $target_dir = "../../assets/uploads/user/" . $user_id . "/";
+            if (!is_dir($target_dir)) {
+                mkdir($target_dir, 0755);
+            }
+            $file = $_FILES['file']['name'];
+            $time = rand();
+            $target_file = $target_dir . basename($_FILES["file"]["name"]);
+
+            
+
+            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+            // Valid file extensions
+            $extensions_arr = array("jpg", "jpeg", "png", "pdf", "docx");
+            if (in_array($imageFileType, $extensions_arr)) :
+                if (move_uploaded_file($_FILES['file']['tmp_name'], $target_dir . $file)) {
+                    $image_path = "/assets/uploads/user/" . $user_id . "/" . basename($_FILES['file']['name']);
+                }else{
+                    
+                }
+            // echo $image_path;
+
+            endif;
+        else :
+            $target_file = '';
+        endif;
+        try {
+            $check = "UPDATE `users` SET `fname`=:fname,`lname`=:lname, `phone`=:phone, `address`=:userAddress, updated_at = now() WHERE `id`=:id";
+            $check_stmt = $conn->prepare($check);
+            $check_stmt->bindValue(':fname', htmlspecialchars(strip_tags($fname)), PDO::PARAM_STR);
+            $check_stmt->bindValue(':lname', htmlspecialchars(strip_tags($lname)), PDO::PARAM_STR);
+            //$check_stmt->bindValue(':email', htmlspecialchars(strip_tags($email)),PDO::PARAM_STR);
+            $check_stmt->bindValue(':phone', htmlspecialchars(strip_tags($phone)), PDO::PARAM_STR);
+            //$check_stmt->bindValue(':country', htmlspecialchars(strip_tags($country)),PDO::PARAM_STR);
+            $check_stmt->bindValue(':userAddress', htmlspecialchars(strip_tags($address)), PDO::PARAM_STR);
+
+            $check_stmt->bindValue(':id', htmlspecialchars(strip_tags($id)), PDO::PARAM_STR);
+            $check_stmt->execute();
+
+            if (!empty($image_path)) {
+                $sql = "UPDATE `users` SET `image_path` = :image_path, updated_at = now() WHERE `id`=:id";
+                $check_stmt = $conn->prepare($sql);
+                $check_stmt->bindValue(':image_path', htmlspecialchars(strip_tags($image_path)), PDO::PARAM_STR);
+                $check_stmt->bindValue(':id', htmlspecialchars(strip_tags($id)), PDO::PARAM_STR);
+                $check_stmt->execute();
+            }
+            if ($role == '2') :
+                $check_pm = "UPDATE `project_managers` SET `name`=:fname WHERE `reg_id`=:id";
+                $check_pm_stmt = $conn->prepare($check_pm);
+                $check_pm_stmt->bindValue(':fname', htmlspecialchars(strip_tags($fullName)), PDO::PARAM_STR);
+                $check_pm_stmt->bindValue(':id', htmlspecialchars(strip_tags($id)), PDO::PARAM_STR);
+                $check_pm_stmt->execute();
+            elseif ($role == '1') :
+                $check_pm = "UPDATE `global_admins` SET `name`=:fname WHERE `reg_id`=:id";
+                $check_pm_stmt = $conn->prepare($check_pm);
+                $check_pm_stmt->bindValue(':fname', htmlspecialchars(strip_tags($fullName)), PDO::PARAM_STR);
+                $check_pm_stmt->bindValue(':id', htmlspecialchars(strip_tags($id)), PDO::PARAM_STR);
+                $check_pm_stmt->execute();
+            elseif ($role == '3') :
+                $check_pm = "UPDATE `country_managers` SET `name`=:fname WHERE `reg_id`=:id";
+                $check_pm_stmt = $conn->prepare($check_pm);
+                $check_pm_stmt->bindValue(':fname', htmlspecialchars(strip_tags($fullName)), PDO::PARAM_STR);
+                $check_pm_stmt->bindValue(':id', htmlspecialchars(strip_tags($id)), PDO::PARAM_STR);
+                $check_pm_stmt->execute();
+            elseif ($role == '4') :
+                $check_pm = "UPDATE `team_members` SET `name`=:fname WHERE `reg_id`=:id";
+                $check_pm_stmt = $conn->prepare($check_pm);
+                $check_pm_stmt->bindValue(':fname', htmlspecialchars(strip_tags($fullName)), PDO::PARAM_STR);
+                $check_pm_stmt->bindValue(':id', htmlspecialchars(strip_tags($id)), PDO::PARAM_STR);
+                $check_pm_stmt->execute();
+            endif;
+            $returnData = msg(1, 201, 'You have successfully updated this record!');
+        } catch (PDOException $e) {
+            $returnData = msg(0, 500, $e->getMessage());
+        }
+        $returnData = msg(1, 201, 'You have successfully updated this record!');
+    endif;
+
+endif;
+
+echo json_encode($returnData);

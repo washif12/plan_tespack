@@ -1,0 +1,12 @@
+{
+
+    "require": {
+        "swiftmailer/swiftmailer": "^6.3",
+        "google/cloud-storage": "^1.27",
+        "symfony/mailer": "^6.1",
+        "symfony/google-mailer": "^6.2",
+        "hybridauth/hybridauth": "^3.9",
+        "firebase/php-jwt": "^6.2",
+        "cboden/ratchet": "^0.4.4"
+    }
+}

@@ -1,0 +1,63 @@
+/*@font-face {
+    font-family: 'veneer';
+    src: url('../fonts/Veneer.ttf') format('truetype'),
+    url('../fonts/VeneerExtras.ttf') format('truetype'),
+    url('../fonts/VeneerExtrasItalic.ttf') format('truetype'),
+    url('../fonts/VeneerItalic.ttf') format('truetype'),
+    url('../fonts/VeneerThree.ttf') format('truetype'),
+    url('../fonts/VeneerThreeItalic.ttf') format('truetype');
+  }
+html * {
+   font-family: veneer !important;
+}*/
+body {
+    height: 100%!important;
+}
+
+
+div.img-holder {
+    width: 50%!important;
+    background-color: #59cae7;
+    min-height: 100%;
+    font-family: veneer !important;
+}
+div.form-holder {
+    width: 50%!important;
+    background-color: #0072ce;
+    opacity: 0.9;
+    min-height: 100%;
+    font-family: veneer !important;
+}
+div.login-holder {
+  background-color: #ee008a;
+  margin: auto;
+  margin-top: 100px;
+}
+div.logo-holder {
+  background-color: #0072ce;
+  opacity: 0.9;
+  margin: auto;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    transition: .3s ease;
+    background-color: transparent;
+  }
+  .icon {
+    padding: 15px;
+    background: white;
+    color: black;
+    min-width: 50px;
+    text-align: center;
+    z-index: 9999;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+  }

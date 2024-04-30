@@ -1,0 +1,271 @@
+{
+    "ssm_id": "SSM-TES00000111",
+    "date_time": "26072023,173756",
+    "system_status": [{
+        "signal_strength": "75%",
+        "operator": "Grameenphone",
+        "running_session": "68.4min",
+        "imei": "862636051481875",
+        "emei": "0",
+        "p_s": "grid & battery",
+        "p_s_sta": "charging & output",
+        "b_sta": "charging",
+        "t_charge": "32%",
+        "system_capacity": "265550Whr",
+        "session_count": "15",
+        "sos": "0",
+        "temp": "32",
+        "gnss_status": "connected/disconnected"
+    }],
+    "event_log": [{
+        "device_activity": "started/stopped",
+        "user_activity": "grid_in/solar_in/backup_on/etc",
+        "faults": "null/battery_low/usb_fail..etc"
+    }],
+    "input_output_log": [{
+        "input_source": "grid/solar/null",
+        "backup_source": "null/battery/grid&battery/solar&battery/grid_only/solar_only",
+        "input_voltage": "19.5V",
+        "input_current": "3.5A",
+        "input_power": "68.25W",
+        "output_voltage": "20V",
+        "output_current": "5.5A",
+        "output_power": "110W",
+        "ups_battery": "4.10v"
+    }],
+    "power_banks_log": [{
+        "battery_id": [
+            "0,0,0,0,0,0,65,0",
+            "0,0,0,99,5,0,0,5",
+            "0,0,0,0,66,0,0,6",
+            "0,0,0,0,0,0,0,128",
+            "0,0,0,0,0,0,0,195",
+            "0,0,0,0,0,0,0,58"
+        ],
+        "battery_cell_capacity": [
+            "123,126,456,486",
+            "123,126,456,486",
+            "123,126,456,486",
+            "123,126,456,486",
+            "123,126,456,486",
+            "123,126,456,486"
+        ],
+        "cycle": "72,120,192,164,133,99",
+        "poc": "75,74,74,75,95,80",
+        "capacity": "125353,455566,64578,767895,288725,344669",
+        "temp": "25,32,33,28,35,65",
+        "altitude": "10m",
+        "energy_in": "6688,7568,9989,18202,3800,9575",
+        "energy_out": "5654,8894,9886,8985,9954,65456",
+        "b_s": "0,0,0,2,2,2"
+    }],
+    "device_session_log": [{
+        "session_uses": "0.0",
+        "f_battery": "0.0",
+        "f_grid": "0.0",
+        "f_solar": "0.0",
+        "t_sn": "0.0"
+    }],
+    "device_total_uses_log": [{
+        "total_uses": "0.0",
+        "f_battery": "0.0",
+        "f_grid": "0.0",
+        "f_solar": "0.0",
+        "total_uptime": "0.0hr"
+    }],
+    "gnss_loaction_log": [{
+        "lat": "2345.6561600,N",
+        "lon": "09026.327060,E",
+        "alt": "5.3,m"
+    }],
+    "wifi_log": [{
+        "wifi": "1256/signal/status",
+        "hotspot": "status here",
+        "connected_devices": "5",
+        "connected_devices_mac_ids": "n[1234,4566,1111,6655,566546,454654456465,4564654654654,4654654654]",
+        "data_volume_passed": "12456.02GB",
+        "network_name": "abcd",
+        "mac_address": "12456.02GB",
+        "anything else": "anything else"
+    }]
+} | {
+    "ssm_id": "SSM-TES00000111",
+    "date_time": "26072023,173756",
+    "system_status": [{
+        "signal_strength": "75%",
+        "operator": "Grameenphone",
+        "running_session": "68.4min",
+        "imei": "862636051481875",
+        "emei": "0",
+        "p_s": "grid & battery",
+        "p_s_sta": "charging & output",
+        "b_sta": "charging",
+        "t_charge": "32%",
+        "system_capacity": "265550Whr",
+        "session_count": "15",
+        "sos": "0",
+        "temp": "32",
+        "gnss_status": "connected/disconnected"
+    }],
+    "event_log": [{
+        "device_activity": "started/stopped",
+        "user_activity": "grid_in/solar_in/backup_on/etc",
+        "faults": "null/battery_low/usb_fail..etc"
+    }],
+    "input_output_log": [{
+        "input_source": "grid/solar/null",
+        "backup_source": "null/battery/grid&battery/solar&battery/grid_only/solar_only",
+        "input_voltage": "19.5V",
+        "input_current": "3.5A",
+        "input_power": "68.25W",
+        "output_voltage": "20V",
+        "output_current": "5.5A",
+        "output_power": "110W",
+        "ups_battery": "4.10v"
+    }],
+    "power_banks_log": [{
+        "battery_id": [
+            "0,0,0,0,0,0,65,0",
+            "0,0,0,99,5,0,0,5",
+            "0,0,0,0,66,0,0,6",
+            "0,0,0,0,0,0,0,128",
+            "0,0,0,0,0,0,0,195",
+            "0,0,0,0,0,0,0,58"
+        ],
+        "battery_cell_capacity": [
+            "123,126,456,486",
+            "123,126,456,486",
+            "123,126,456,486",
+            "123,126,456,486",
+            "123,126,456,486",
+            "123,126,456,486"
+        ],
+        "cycle": "72,120,192,164,133,91",
+        "poc": "75,74,74,75,95,80",
+        "capacity": "125353,455566,64578,767895,288725,344669",
+        "temp": "25,32,33,28,35,65",
+        "altitude": "10m",
+        "energy_in": "6688,7568,9989,18202,3800,9575",
+        "energy_out": "5654,8894,9886,8985,9954,65456",
+        "b_s": "0,0,0,2,2,2"
+    }],
+    "device_session_log": [{
+        "session_uses": "0.0",
+        "f_battery": "0.0",
+        "f_grid": "0.0",
+        "f_solar": "0.0",
+        "t_sn": "0.0"
+    }],
+    "device_total_uses_log": [{
+        "total_uses": "0.0",
+        "f_battery": "0.0",
+        "f_grid": "0.0",
+        "f_solar": "0.0",
+        "total_uptime": "0.0hr"
+    }],
+    "gnss_loaction_log": [{
+        "lat": "2345.6561600,N",
+        "lon": "09026.327060,E",
+        "alt": "5.3,m"
+    }],
+    "wifi_log": [{
+        "wifi": "1256/signal/status",
+        "hotspot": "status here",
+        "connected_devices": "5",
+        "connected_devices_mac_ids": "n[1234,4566,1111,6655,566546,454654456465,4564654654654,4654654654]",
+        "data_volume_passed": "12456.02GB",
+        "network_name": "abcd",
+        "mac_address": "12456.02GB",
+        "anything else": "anything else"
+    }]
+} | {
+    "ssm_id": "SSM-TES00000111",
+    "date_time": "26072023,173756",
+    "system_status": [{
+        "signal_strength": "75%",
+        "operator": "Grameenphone",
+        "running_session": "68.4min",
+        "imei": "862636051481875",
+        "emei": "0",
+        "p_s": "grid & battery",
+        "p_s_sta": "charging & output",
+        "b_sta": "charging",
+        "t_charge": "32%",
+        "system_capacity": "265550Whr",
+        "session_count": "15",
+        "sos": "0",
+        "temp": "32",
+        "gnss_status": "connected/disconnected"
+    }],
+    "event_log": [{
+        "device_activity": "started/stopped",
+        "user_activity": "grid_in/solar_in/backup_on/etc",
+        "faults": "null/battery_low/usb_fail..etc"
+    }],
+    "input_output_log": [{
+        "input_source": "grid/solar/null",
+        "backup_source": "null/battery/grid&battery/solar&battery/grid_only/solar_only",
+        "input_voltage": "19.5V",
+        "input_current": "3.5A",
+        "input_power": "68.25W",
+        "output_voltage": "20V",
+        "output_current": "5.5A",
+        "output_power": "110W",
+        "ups_battery": "4.10v"
+    }],
+    "power_banks_log": [{
+        "battery_id": [
+            "0,0,0,0,0,0,65,0",
+            "0,0,0,99,5,0,0,5",
+            "0,0,0,0,66,0,0,6",
+            "0,0,0,0,0,0,0,128",
+            "0,0,0,0,0,0,0,195",
+            "0,0,0,0,0,0,0,58"
+        ],
+        "battery_cell_capacity": [
+            "123,126,456,486",
+            "123,126,456,486",
+            "123,126,456,486",
+            "123,126,456,486",
+            "123,126,456,486",
+            "123,126,456,486"
+        ],
+        "cycle": "7,120,192,164,133,99",
+        "poc": "75,74,74,75,95,80",
+        "capacity": "125353,455566,64578,767895,288725,344669",
+        "temp": "25,32,33,28,35,65",
+        "altitude": "10m",
+        "energy_in": "6688,7568,9989,18202,3800,9575",
+        "energy_out": "5654,8894,9886,8985,9954,65456",
+        "b_s": "0,0,0,2,2,2"
+    }],
+    "device_session_log": [{
+        "session_uses": "0.0",
+        "f_battery": "0.0",
+        "f_grid": "0.0",
+        "f_solar": "0.0",
+        "t_sn": "0.0"
+    }],
+    "device_total_uses_log": [{
+        "total_uses": "0.0",
+        "f_battery": "0.0",
+        "f_grid": "0.0",
+        "f_solar": "0.0",
+        "total_uptime": "0.0hr"
+    }],
+    "gnss_loaction_log": [{
+        "lat": "2345.6561600,N",
+        "lon": "09026.327060,E",
+        "alt": "5.3,m"
+    }],
+    "wifi_log": [{
+        "wifi": "1256/signal/status",
+        "hotspot": "status here",
+        "connected_devices": "5",
+        "connected_devices_mac_ids": "n[1234,4566,1111,6655,566546,454654456465,4564654654654,4654654654]",
+        "data_volume_passed": "12456.02GB",
+        "network_name": "abcd",
+        "mac_address": "12456.02GB",
+        "anything else": "anything else"
+    }]
+} |

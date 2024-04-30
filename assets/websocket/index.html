@@ -1,0 +1,44 @@
+<html>
+<head>
+  <script src="test.js"></script>
+  <script>
+
+
+    // var socket = new WebSocket('ws://localhost:8080/chat');
+    socket.onmessage = function (event) {
+      var data = JSON.parse(event.data);
+      var notifications = document.getElementById('notifications');
+      notifications.innerHTML += '<p><strong>' + data.username + ':</strong> ' + data.message + '</p>';
+      notifications.scrollTop = notifications.scrollHeight;
+      
+    };
+    
+
+    // function sendNotification() {
+    //   var input = document.getElementById('notification');
+    //   var message = input.value;
+    //   input.value = '';
+
+    //   var username = prompt('Enter your username:');
+    //   socket.send(JSON.stringify({
+    //     username: username,
+    //     message: message
+    //   }));
+    // }
+    // const notification =(method, data) => {
+
+    //   return JSON.stringify({
+    //     method : method,
+    //     data : data
+    //   })
+    // }
+    // console.log(notification('PATCH', "kaa"))
+  </script>
+</head>
+<body>
+  <div id="notifications"></div>
+  <!-- <input id="notification" type="text" placeholder="Enter your notification here">
+  <button onclick="sendNotification()">Send</button> -->
+  
+  </body>
+  </html>
